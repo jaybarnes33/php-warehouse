@@ -1,0 +1,232 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 1.5rem;
+  color: white;
+}
+.sideBar {
+  position: fixed;
+  width: 280px;
+  height: 100vh;
+  background-color: #101010;
+  background-image: url("../images/bg1.jpg");
+  background-size: fill;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.sideNav > ul {
+  font-size: 1.2rem;
+  padding: 120px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.sideNav li {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.sideNav a {
+  transition: color ease-out 150ms;
+}
+
+.active {
+  color: #ffc045 !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.sideNav a:hover,
+li:hover {
+  color: #ffc045;
+}
+
+.logout {
+  position: fixed;
+  width: 270px;
+  bottom: 20px;
+}
+
+.content {
+  padding-top: 60px;
+  padding-left: 280px;
+}
+
+.nav-main {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+  display: flex;
+  list-style-type: none;
+  gap: 40px;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.nav-main i {
+  color: grey;
+  font-size: 1.3rem;
+  transition: transform ease-in 100ms;
+}
+
+.nav-main i:hover {
+  transform: scale(1.1);
+  color: black;
+}
+
+.statistics {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.statItem {
+  width: 100%;
+  text-align: center;
+  padding: 50px 20px;
+  color: black;
+  border-radius: 5px;
+  transition: transform ease-in 100ms;
+  font-size: 2rem;
+}
+
+.number {
+  font-size: 2.5rem;
+  display: block;
+}
+
+.statItem {
+  background-blend-mode: overlay;
+  background-size: contain;
+}
+.statItem:nth-child(1) {
+  background-color: #007bff;
+}
+
+.statItem:nth-child(2) {
+  background-color: #e45826;
+}
+
+.statItem:nth-child(3) {
+  background-color: goldenrod;
+}
+
+.statItem:hover {
+  color: white;
+  transform: scale(1.03);
+}
+
+/* tables */
+.tables {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.tableWrapper {
+  width: 100%;
+  padding: 20px;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+}
+.styled-table thead tr {
+  background-color: #ffc045;
+  color: #26282b;
+  text-align: left;
+}
+
+.clock {
+  position: absolute;
+  left: 67%;
+  font-size: 1.5rem;
+}
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #26282b;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #ffc045;
+}
+
+.heading {
+  font-size: 2rem;
+}
+tbody tr:hover {
+  background-color: #f3f3f3 !important;
+  text-shadow: 0px 0px 0 #ffc045, 1px 0px 0 #ffc045, 0px 1px 0 #ffc045,
+    1px 1px 0 #ffc045;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #ffc045;
+}
+
+@media screen and (max-width: 800px) {
+  .statistics {
+    flex-direction: column;
+  }
+
+  .sideBar {
+    display: none;
+  }
+
+  .content {
+    padding-left: 0px;
+    padding-right: 10px;
+  }
+
+  .statItem {
+    width: 90%;
+  }
+
+  .tables {
+    flex-direction: column;
+  }
+  .tableWrapper {
+    overflow-x: scroll;
+  }
+  body {
+    overflow-x: auto;
+  }
+}
