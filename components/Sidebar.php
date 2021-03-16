@@ -37,8 +37,9 @@
 </div>
 
 <script>
-  let currentWindow = document.location.pathname.slice(7).split(".")[0];
-  const active = document
+  let currentWindow = document.location.pathname.slice(11).split(".")[0];
+  currentWindow=="" ? document.querySelector(".main").classList.add("active"):
+ document
     .querySelector(`.${currentWindow}`)
     .classList.add("active");
   
