@@ -1,0 +1,13 @@
+{
+  "name": "Warehouse",
+  "version": "1.0.0",
+  "description": "Warehouse managagement system project",
+  "main": "index.php",
+  "repository": "https://github.com/jaybarnes33/php-warehouse.git",
+  "author": "Oduro T.J Barnes <ohenesetwumasi@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.16.2",
+    "prettier": "^2.2.1"
+  }
+}

@@ -12,14 +12,10 @@
 
   <body>
     <!-- Side -->
-    <?php include("../components/Sidebar.php")
-
-    ?>
+    <?php include "../components/Sidebar.php"; ?>
     <!-- Content -->
     <div class="content">
-    <?php
-include("../components/Header.php");
-    ?>
+    <?php include "../components/Header.php"; ?>
      
       <section class="statistics">
         <div class="statItem">
@@ -46,17 +42,15 @@ include("../components/Header.php");
               </tr>
             </thead>
             <tbody>
-            <?php
-for($i=0; $i<10; $i++){
- echo ("<tr>
+            <?php for ($i = 0; $i < 10; $i++) {
+              echo "<tr>
  <td>Dom</td>
  <td>6000</td>
  <td>Dom</td>
  <td>Admin</td>
  <td>Dom</td>
-</tr>"); 
-}
-?>
+</tr>";
+            } ?>
              
               <!-- and so on... -->
             </tbody>
@@ -76,25 +70,20 @@ for($i=0; $i<10; $i++){
               </tr>
             </thead>
             <tbody>
-              <?php
-                for($i=0; $i<10; $i++){
-                  echo (
-                  "<tr>
+              <?php for ($i = 0; $i < 10; $i++) {
+                echo "<tr>
                     <td>Dom</td>
                     <td>6000</td>
                     <td>Dom</td>
                     <td>Admin</td>
                     <td>Dom</td>
-                    </tr>"
-); 
-            }
-?>
+                    </tr>";
+              } ?>
               
               <!-- and so on... -->
             </tbody>
           </table>
         </div>
-        a
         <div class="tableWrapper orders">
           <h3 class="heading">Orders</h3>
           <table class="styled-table">

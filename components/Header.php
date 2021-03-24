@@ -4,9 +4,7 @@
 
   
 
-   <?php
-include("Clock.php");
-   ?>
+   <?php include "Clock.php"; ?>
       </nav>
 
 
