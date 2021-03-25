@@ -1,4 +1,7 @@
 <?php
+
+include_once "../utils/sanitize.php";
+
 class Product
 {
   private $conn;
@@ -20,7 +23,11 @@ class Product
 
   public function read()
   {
-    $query = "SELECT * FROM products";
+    $query =
+      "SELECT * FROM " .
+      $this->table .
+      ' product 
+    ORDER BY product.id DESC ';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
@@ -29,15 +36,10 @@ class Product
     return $stmt;
   }
 
+  // Read Single Product
   public function read_single()
   {
-    $query =
-      "SELECT * FROM " .
-      $this->table .
-      ' product 
-    WHERE product.id = ? 
-    LIMIT 0,1';
-
+    $query = "SELECT * FROM $this->table product WHERE product.id = ? LIMIT 0,1";
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
@@ -46,7 +48,7 @@ class Product
 
     $stmt->execute();
 
-    $row = $stmt(PDO::FETCH_ASSOC);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     //   Set properties
     $this->id = $row["id"];
@@ -55,5 +57,34 @@ class Product
     $this->sellingPrice = $row["sellingPrice"];
     $this->costPrice = $row["costPrice"];
     $this->countInStock = $row["countInStock"];
+  }
+
+  //  Create Product
+  public function create()
+  {
+    $query = "INSERT INTO $this->table ( name,costPrice, sellingPrice, countInStock) VALUES (:name, :costPrice, :sellingPrice, :countInStock)";
+
+    // Prepare statement
+
+    $stmt = $this->conn->prepare($query);
+
+    // clean data
+    $this->name = sanitize_input($this->name);
+    $this->costPrice = sanitize_input($this->costPrice);
+    $this->sellingPrice = sanitize_input($this->sellingPrice);
+    $this->countInStock = sanitize_input($this->countInStock);
+
+    // Bind data
+    $stmt->bindParam(":name", $this->name);
+    $stmt->bindParam(":costPrice", $this->costPrice);
+    $stmt->bindParam(":sellingPrice", $this->sellingPrice);
+    $stmt->bindParam(":countInStock", $this->countInStock);
+    // execute query
+    if ($stmt->execute()) {
+      return true;
+      echo "Product created";
+    } else {
+      printf("Error: %s.\n", $stmt->error);
+    }
   }
 }
