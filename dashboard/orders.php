@@ -1,3 +1,11 @@
+<?php 
+
+    require_once("../include/connection.php");
+    $query1 = " SELECT * FROM orders; ";
+    $result1 = mysqli_query($con,$query1);
+
+?>
+
 <!DOCTYPE php>
 <php lang="en">
   <head>
@@ -6,7 +14,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/utils.css" />
     <link rel="stylesheet" href="../css/main.css" />
-
+    <link rel="stylesheet" href="../css/index.css"/>
     <link rel="stylesheet" href="../assets/fontawesome-free/css/all.css" />
   </head>
   <body>
@@ -17,148 +25,15 @@
     <div class="content">
       <?php include("../components/Header.php");?>
 
-      <section class="tables">
-        <div class="tableWrapper orders">
-          <h3 class="heading">Orders</h3>
-          <table class="styled-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Role</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Admin</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Mangager</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Loader</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Admin</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Mangager</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Loader</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Admin</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Mangager</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Loader</td>
-                <td>Melissa</td>
-              </tr>
-              <!-- and so on... -->
-            </tbody>
-          </table>
-        </div>
-      </section>
+    <!-- Order-Table -->
+    <section class="tables">
+      <div class="tableWrapper orders">
+        <?php include("../tables/order_table.php");?>
+        <form action="../order/add.php"><button  name="add" type="submit">+</button></form>
+      </div>
+
+    </section>
+      
     </div>
 
     <!-- End Content -->

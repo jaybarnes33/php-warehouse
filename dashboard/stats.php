@@ -1,3 +1,11 @@
+<?php
+
+    require_once("../user/noOfUsers.php");
+    require_once("../order/noOfOrders.php");
+    require_once("../product/noOfProducts.php");
+?>
+
+
 <!DOCTYPE php>
 <php lang="en">
   <head>
@@ -19,11 +27,11 @@
 
       <section class="statistics">
         <div class="statItem">
-          <span class="number mr-2">60</span>Products in stock
+          <span class="number mr-2"><?php echo $numOfProducts ?></span>Products in stock
         </div>
-        <div class="statItem"><span class="number mr-2">5</span>Users</div>
+        <div class="statItem"><span class="number mr-2"><?php echo $numOfUsers ?></span>Users</div>
         <div class="statItem">
-          <span class="number mr-2">20</span>Products sold
+          <span class="number mr-2"><?php echo $numOfOrders ?></span>Orders
         </div>
       </section>
     </div>

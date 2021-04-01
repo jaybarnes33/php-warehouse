@@ -1,3 +1,17 @@
+<?php
+
+    require_once("../user/noOfUsers.php");
+    require_once("../order/noOfOrders.php");
+    require_once("../product/noOfProducts.php");
+    require_once("../include/connection.php");
+    $query1 = " SELECT * FROM orders; ";
+    $result1 = mysqli_query($con,$query1);
+    $query2 = " SELECT * FROM Products; ";
+    $result2 = mysqli_query($con,$query2);
+    $query = " SELECT * FROM users ";
+    $result = mysqli_query($con,$query);
+?>
+
 <!DOCTYPE php>
 <php lang="en">
   <head>
@@ -6,142 +20,49 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/utils.css" />
     <link rel="stylesheet" href="../css/main.css" />
-
+    <link rel="stylesheet" href="../css/index.css"/>
     <link rel="stylesheet" href="../assets/fontawesome-free/css/all.css" />
   </head>
 
   <body>
     <!-- Side -->
-    <?php include "../components/Sidebar.php"; ?>
+    <?php include("../components/Sidebar.php")
+
+    ?>
     <!-- Content -->
     <div class="content">
-    <?php include "../components/Header.php"; ?>
+    <?php
+      include("../components/Header.php");
+    ?>
      
       <section class="statistics">
         <div class="statItem">
-          <span class="number mr-2">60</span>Products in stock
+          <span class="number mr-2"><?php echo $numOfProducts ?></span>Products in stock
         </div>
-        <div class="statItem"><span class="number mr-2">5</span>Users</div>
+        <div class="statItem"><span class="number mr-2"><?php echo $numOfUsers ?></span>Users</div>
         <div class="statItem">
-          <span class="number mr-2">20</span>Products sold
+          <span class="number mr-2"><?php echo $numOfOrders ?></span>Orders
         </div>
       </section>
 
       <section class="tables">
-        <div class="tableWrapper products">
-          <h3 class="heading">Products</h3>
-          <table class="styled-table">
-            <thead>
-         
-              <tr>
-                <th>ID</th>
-                <th>Date Added</th>
-                <th>Name</th>
-                <th>Stock</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php for ($i = 0; $i < 10; $i++) {
-              echo "<tr>
- <td>Dom</td>
- <td>6000</td>
- <td>Dom</td>
- <td>Admin</td>
- <td>Dom</td>
-</tr>";
-            } ?>
-             
-              <!-- and so on... -->
-            </tbody>
-          </table>
-        </div>
 
+        <!--Product Table -->
+        <div class="tableWrapper products">
+          <?php include("../tables/product_table.php") ?>
+        </div>
+          
+        <!--Users Table -->
         <div class="tableWrapper users">
-          <h3 class="heading">Users</h3>
-          <table class="styled-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Role</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php for ($i = 0; $i < 10; $i++) {
-                echo "<tr>
-                    <td>Dom</td>
-                    <td>6000</td>
-                    <td>Dom</td>
-                    <td>Admin</td>
-                    <td>Dom</td>
-                    </tr>";
-              } ?>
-              
-              <!-- and so on... -->
-            </tbody>
-          </table>
+         <?php include("../tables/user_table.php") ?>
         </div>
-        <div class="tableWrapper orders">
-          <h3 class="heading">Orders</h3>
-          <table class="styled-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Username</th>
-                <th>Role</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Admin</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Mangager</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Melissa</td>
-              </tr>
-              <tr>
-                <td>Dom</td>
-                <td>6000</td>
-                <td>Dom</td>
-                <td>Teller</td>
-                <td>Dom</td>
-              </tr>
-              <tr>
-                <td>Melissa</td>
-                <td>5150</td>
-                <td>Melissa</td>
-                <td>Loader</td>
-                <td>Melissa</td>
-              </tr>
-              <!-- and so on... -->
-            </tbody>
-          </table>
-        </div>
+        
+
+         <!-- Orders Table -->
+      <div class="tableWrapper orders">
+        <?php include("../tables/order_table.php");?>
+      </div>
+        
       </section>
     </div>
 
