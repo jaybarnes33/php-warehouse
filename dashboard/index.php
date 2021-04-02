@@ -48,21 +48,128 @@
       <section class="tables">
 
         <!--Product Table -->
-        <div class="tableWrapper products">
-          <?php include("../tables/product_table.php") ?>
-        </div>
+      <div class="tableWrapper products"> 
+        <h3 class="heading">Products</h3>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Date Added</th>
+                <th>Product Name</th>
+                <th>Stock</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+               
+              <?php 
+                                
+                while($row=mysqli_fetch_assoc($result2))
+                {
+                    $id = $row['ID'];
+                    $product = $row['name'];
+                    $stock = $row['stock'];
+                    $price = $row['price'];
+                    $date = $row['date_added'];
+                ?>
+              <tr>
+                  <td><?php echo $id ?></td>
+                  <td><?php echo $date ?></td>
+                  <td><?php echo $product ?></td>
+                  <td><?php echo $stock ?></td>
+                  <td><?php echo $price ?></td>
+              </tr>
+              <?php 
+                  }  
+              ?>
+            </tbody>
+          </table>
+          </div>
           
-        <!--Users Table -->
+        <!--Users Table -->       
         <div class="tableWrapper users">
-         <?php include("../tables/user_table.php") ?>
-        </div>
+        <h3 class="heading">Users </h3>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+              <?php 
+                                      
+                while($row=mysqli_fetch_assoc($result))
+                {
+                  $id = $row['ID'];
+                  $name = $row['name'];
+                  $username = $row['username'];
+                  $role = $row['role'];
+                  $date = $row['date_added'];
+              ?> 
+              <tr>
+                  <td><?php echo $id ?></td>
+                  <td><?php echo $name ?></td>
+                  <td><?php echo $username ?></td>
+                  <td><?php echo $role ?></td>
+                  <td><?php echo $date ?></td>
+              </tr>
+              <?php 
+                  }  
+              ?>
+              
+            </tbody>
+          </table>
+          </div>
+
+
+        
         
 
          <!-- Orders Table -->
-      <div class="tableWrapper orders">
-        <?php include("../tables/order_table.php");?>
-      </div>
-        
+      <div class="tableWrapper orders"> 
+      <h3 class="heading">Orders</h3>
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <!-- Loop through database -->  
+              <?php 
+                                
+                while($row=mysqli_fetch_assoc($result1))
+                {
+                    $id = $row['order_id'];
+                    $custName = $row['customer_name'];
+                    $product = $row['product_name'];
+                    $qty_ordered = $row['qty_ordered'];
+                    $date = $row['date_ordered'];
+                ?>
+              <tr>
+                  <td><?php echo $id ?></td>
+                  <td><?php echo $custName ?></td>
+                  <td><?php echo $product ?></td>
+                  <td><?php echo $qty_ordered ?></td>
+                  <td><?php echo $date ?></td>
+              </tr>
+              <?php 
+                  }  
+              ?>
+            </tbody>
+          </table>
+          </div>
+
       </section>
     </div>
 

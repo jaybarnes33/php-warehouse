@@ -29,6 +29,7 @@
     <section class="tables">
       <div class="tableWrapper orders">
         <?php include("../tables/order_table.php");?>
+        
         <form action="../order/add.php"><button  name="add" type="submit">+</button></form>
       </div>
 
